@@ -1,5 +1,4 @@
 const Utilitarios = require('../src/utilitarios');
-
 const utilitarios = new Utilitarios();
 
 describe('Utilitarios', () => {
@@ -19,5 +18,16 @@ describe('Utilitarios', () => {
     expect(utilitarios.contarCaracteres('hello')).toBe(5);
   });
 
+  test('Para maiúsculas', () => {
+    expect(utilitarios.paraMaiusculas('abC')).toBe('ABC');
+  });
+
+  test('Para minúsculas', () => {
+    expect(utilitarios.paraMinusculas('AbC')).toBe('abc');
+  });
+
+  test('Primeira letra maiúscula', () => {
+    expect(utilitarios.primeiraLetraMaiuscula('texto')).toBe('Texto');
+  });
 
 });
