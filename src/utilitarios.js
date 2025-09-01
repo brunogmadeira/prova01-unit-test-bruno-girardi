@@ -1,3 +1,5 @@
+const { dividir } = require("./calculator");
+
 class Utilitarios {
   inverterString(str) {
     return str.split("").reverse().join("");
@@ -103,4 +105,4 @@ class Utilitarios {
   }
 }
 
-module.exports = Utilitarios;
+module.exports = {dividir};
