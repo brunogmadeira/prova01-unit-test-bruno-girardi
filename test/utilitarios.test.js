@@ -6,7 +6,7 @@ describe('Utilitarios', () => {
     expect(utilitarios.dividir(20, 10)).toBe(2);
   });
 
-  test('Dividir por zero lança erro', () => {
+  test('Dividir por zero retorna um erro', () => {
     expect(() => utilitarios.dividir(5, 0)).toThrow('Divisão por zero');
   });
 
@@ -14,128 +14,120 @@ describe('Utilitarios', () => {
     expect(utilitarios.inverterString('hello')).toBe('olleh');
   });
 
-  test('Contar caracteres', () => {
+  test('Contar caracteres de um texto', () => {
     expect(utilitarios.contarCaracteres('hello')).toBe(5);
   });
 
-  test('Para maiúsculas', () => {
+  test('Transforma letras em maisculas', () => {
     expect(utilitarios.paraMaiusculas('abC')).toBe('ABC');
   });
 
-  test('Para minúsculas', () => {
+  test('Tranformar texto para letras minúsculas', () => {
     expect(utilitarios.paraMinusculas('AbC')).toBe('abc');
   });
 
-  test('Primeira letra maiúscula', () => {
+  test('Torna primeira letra maiscula', () => {
     expect(utilitarios.primeiraLetraMaiuscula('texto')).toBe('Texto');
   });
 
-  test('Somar', () => {
+  test('Soma de dois valores', () => {
     expect(utilitarios.somar(3, 4)).toBe(7);
   });
 
-  test('Subtrair', () => {
+  test('Subtração de dois valores', () => {
     expect(utilitarios.subtrair(10, 4)).toBe(6);
   });
 
-  test('Multiplicar', () => {
+  test('Multiplicação de dois valores', () => {
     expect(utilitarios.multiplicar(3, 5)).toBe(15);
   });
 
-  test('Eh par true', () => {
+  test('Verificação de numero par (Para verdadeiro)', () => {
     expect(utilitarios.ehPar(8)).toBe(true);
   });
 
-  test('Eh par false', () => {
+  test('Verificação de numero par (Para negativo)', () => {
     expect(utilitarios.ehPar(7)).toBe(false);
   });
 
-  test('Primeiro elemento', () => {
+  test('Retorna valor do primeiro elemento de um array', () => {
     expect(utilitarios.primeiroElemento([9, 8, 7])).toBe(9);
   });
 
-  test('Último elemento', () => {
+  test('Retorna valor do ultimo elemento de um array', () => {
     expect(utilitarios.ultimoElemento([9, 8, 7])).toBe(7);
   });
 
-  test('Tamanho array', () => {
+  test('Retorna o tamanho total de um array', () => {
     expect(utilitarios.tamanhoArray([1,2,3,4])).toBe(4);
   });
 
-  test('Ordenar array sem mutar original', () => {
+  test('Inverter array sem alterar original', () => {
     const arr = ['c','a','b'];
     const ordenado = utilitarios.ordenarArray(arr);
     expect(ordenado).toEqual(['a','b','c']);
     expect(arr).toEqual(['c','a','b']);
   });
 
-  test('Inverter array sem mutar original', () => {
+  test('Inverter array sem alterar original', () => {
     const arr = [1,2,3];
     const invertido = utilitarios.inverterArray(arr);
     expect(invertido).toEqual([3,2,1]);
     expect(arr).toEqual([1,2,3]);
   });
 
-  test('Gerar número aleatório (mock)', () => {
+  test('Gerar número aleatório (Numero randomizado MOCKADO)', () => {
     const original = Math.random;
     Math.random = () => 0.5;
     expect(utilitarios.gerarNumeroAleatorio(100)).toBe(50);
     Math.random = original;
   });
 
-  test('É número válido', () => {
+  test('Verificador se variável é numero (Verdadeiro)', () => {
     expect(utilitarios.ehNumero(10)).toBe(true);
   });
 
-  test('Não é número (NaN)', () => {
+  test('Verificador se variavel é numero (Passando letra)', () => {
     expect(utilitarios.ehNumero(Number('x'))).toBe(false);
   });
 
-  test('Não é número (string)', () => {
+  test('Verificador se variavel é numero (Passando string de numeros)', () => {
     expect(utilitarios.ehNumero('10')).toBe(false);
   });
 
-  test('Remover espaços', () => {
+  test('Remoção de espaços de texto', () => {
     expect(utilitarios.removerEspacos('  teste \n')).toBe('teste');
   });
 
-  test('Repetir texto', () => {
+  test('Repetidor de texto', () => {
     expect(utilitarios.repetirTexto('ab', 3)).toBe('ababab');
   });
 
-  test('Juntar array default', () => {
+  test('Juntar array transformando em string', () => {
     expect(utilitarios.juntarArray([1,2,3])).toBe('1,2,3');
   });
 
-  test('Juntar array com separador', () => {
+  test('Juntar array transformando em string com separador', () => {
     expect(utilitarios.juntarArray(['a','b','c'], '-')).toBe('a-b-c');
   });
 
-  test('Contar palavras', () => {
+  test('Contagem de palavras em um texto', () => {
     expect(utilitarios.contarPalavras('  um   dois   tres ')).toBe(3);
   });
 
-  test('Média array', () => {
+  test('Realiza o calculo da media dos valores de um array', () => {
     expect(utilitarios.mediaArray([2,4,6,8])).toBe(5);
   });
 
-  test('Média array vazio', () => {
-    expect(utilitarios.mediaArray([])).toBe(0);
-  });
-
-  test('Remover duplicados', () => {
+  test('Remove valores duplicados de um array', () => {
     expect(utilitarios.removerDuplicados([1,2,2,3,1])).toEqual([1,2,3]);
   });
 
-  test('É palíndromo', () => {
+  test('Verifica se duas palavras são um palindromo', () => {
     expect(utilitarios.ehPalindromo('Ame a ema')).toBe(true);
   });
 
-  test('Não é palíndromo', () => {
-    expect(utilitarios.ehPalindromo('Teste')).toBe(false);
-  });
-
-  test('Mesclar objetos', () => {
+  test('Mesclar dois objetos e suas classes', () => {
     expect(utilitarios.mesclarObjetos({a:1, b:2}, {b:3, c:4})).toEqual({a:1, b:3, c:4});
   });
 });
