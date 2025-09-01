@@ -78,8 +78,8 @@ describe('Utilitarios', () => {
 
   test('Gerar número aleatório (mock)', () => {
     const original = Math.random;
-    Math.random = () => 0.57;
-    expect(utilitarios.gerarNumeroAleatorio(100)).toBe(57);
+    Math.random = () => 0.5;
+    expect(utilitarios.gerarNumeroAleatorio(100)).toBe(50);
     Math.random = original;
   });
 
